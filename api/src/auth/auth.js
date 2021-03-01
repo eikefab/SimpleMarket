@@ -6,7 +6,7 @@ module.exports = {
     validate(request, response, next) {
         const token = request.headers["x-access-token"];
     
-        jwt.verify(token, process.env.secret, (error, decoded) => {
+        jwt.verify(token, process.env.SECRET, (error, decoded) => {
             if (error) return response.status(500).json({
                 auth: false,
                 message: 'Invalid or no token provided.'
